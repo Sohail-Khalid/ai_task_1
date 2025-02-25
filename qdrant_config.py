@@ -1,9 +1,10 @@
-from langchain.llms.ollama import Ollama
+# from langchain.llms.ollama import Ollama
+from langchain_ollama import ChatOllama
 from langchain.embeddings import HuggingFaceEmbeddings
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
 
-llms = Ollama(model="deepseek-r1:1.5b")
+llms = ChatOllama(model="deepseek-r1:1.5b", temperature=0.5)
 
 try:
     embed_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
